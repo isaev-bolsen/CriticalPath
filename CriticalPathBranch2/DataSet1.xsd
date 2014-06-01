@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WorkList" msprop:Generator_TableClassName="WorkListDataTable" msprop:Generator_TableVarName="tableWorkList" msprop:Generator_TablePropName="WorkList" msprop:Generator_RowDeletingName="WorkListRowDeleting" msprop:Generator_RowChangingName="WorkListRowChanging" msprop:Generator_RowEvHandlerName="WorkListRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkListRowDeleted" msprop:Generator_UserTableName="WorkList" msprop:Generator_RowChangedName="WorkListRowChanged" msprop:Generator_RowEvArgName="WorkListRowChangeEvent" msprop:Generator_RowClassName="WorkListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="WorkName" msprop:Generator_ColumnVarNameInTable="columnWorkName" msprop:Generator_ColumnPropNameInRow="WorkName" msprop:Generator_ColumnPropNameInTable="WorkNameColumn" msprop:Generator_UserColumnName="WorkName" type="xs:string" minOccurs="0" />
+              <xs:element name="a" msprop:Generator_ColumnVarNameInTable="columna" msprop:Generator_ColumnPropNameInRow="a" msprop:Generator_ColumnPropNameInTable="aColumn" msprop:Generator_UserColumnName="a" type="xs:double" minOccurs="0" />
+              <xs:element name="m" msprop:Generator_ColumnVarNameInTable="columnm" msprop:Generator_ColumnPropNameInRow="m" msprop:Generator_ColumnPropNameInTable="mColumn" msprop:Generator_UserColumnName="m" type="xs:double" minOccurs="0" />
+              <xs:element name="b" msprop:Generator_ColumnVarNameInTable="columnb" msprop:Generator_ColumnPropNameInRow="b" msprop:Generator_ColumnPropNameInTable="bColumn" msprop:Generator_UserColumnName="b" type="xs:double" minOccurs="0" />
+              <xs:element name="Time" msdata:ReadOnly="true" msdata:Expression="([a]+4*[m]+[b])/6" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:double" minOccurs="0" />
+              <xs:element name="Dispercy" msdata:ReadOnly="true" msdata:Expression="([a]-[b])*([a]-[b])/36" msprop:Generator_ColumnVarNameInTable="columnDispercy" msprop:Generator_ColumnPropNameInRow="Dispercy" msprop:Generator_ColumnPropNameInTable="DispercyColumn" msprop:Generator_UserColumnName="Dispercy" type="xs:double" minOccurs="0" />
+              <xs:element name="Previous" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="Previous" msprop:Generator_ColumnVarNameInTable="columnPrevious" msprop:Generator_ColumnPropNameInTable="PreviousColumn" msprop:Generator_UserColumnName="Previous" type="xs:string" minOccurs="0" />
+              <xs:element name="ES" msprop:Generator_ColumnVarNameInTable="columnES" msprop:Generator_ColumnPropNameInRow="ES" msprop:Generator_ColumnPropNameInTable="ESColumn" msprop:Generator_UserColumnName="ES" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="EF" msdata:ReadOnly="true" msdata:Expression="[Time]+[ES]" msprop:Generator_ColumnVarNameInTable="columnEF" msprop:Generator_ColumnPropNameInRow="EF" msprop:Generator_ColumnPropNameInTable="EFColumn" msprop:Generator_UserColumnName="EF" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LS" msdata:ReadOnly="true" msdata:Expression="[LF]-[Time]" msprop:Generator_ColumnVarNameInTable="columnLS" msprop:Generator_ColumnPropNameInRow="LS" msprop:Generator_ColumnPropNameInTable="LSColumn" msprop:Generator_UserColumnName="LS" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LF" msprop:Generator_ColumnVarNameInTable="columnLF" msprop:Generator_ColumnPropNameInRow="LF" msprop:Generator_ColumnPropNameInTable="LFColumn" msprop:Generator_UserColumnName="LF" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="R" msdata:ReadOnly="true" msdata:Expression="[LF]-[Ef]" msprop:Generator_ColumnVarNameInTable="columnR" msprop:Generator_ColumnPropNameInRow="R" msprop:Generator_ColumnPropNameInTable="RColumn" msprop:Generator_UserColumnName="R" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WorkList1" msprop:Generator_TableClassName="WorkList1DataTable" msprop:Generator_TableVarName="tableWorkList1" msprop:Generator_RowChangedName="WorkList1RowChanged" msprop:Generator_TablePropName="WorkList1" msprop:Generator_RowDeletingName="WorkList1RowDeleting" msprop:Generator_RowChangingName="WorkList1RowChanging" msprop:Generator_RowEvHandlerName="WorkList1RowChangeEventHandler" msprop:Generator_RowDeletedName="WorkList1RowDeleted" msprop:Generator_RowClassName="WorkList1Row" msprop:Generator_UserTableName="WorkList1" msprop:Generator_RowEvArgName="WorkList1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="WorkName" msprop:Generator_ColumnVarNameInTable="columnWorkName" msprop:Generator_ColumnPropNameInRow="WorkName" msprop:Generator_ColumnPropNameInTable="WorkNameColumn" msprop:Generator_UserColumnName="WorkName" type="xs:string" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:double" minOccurs="0" />
+              <xs:element name="Previous" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="Previous" msprop:Generator_ColumnVarNameInTable="columnPrevious" msprop:Generator_ColumnPropNameInTable="PreviousColumn" msprop:Generator_UserColumnName="Previous" type="xs:string" minOccurs="0" />
+              <xs:element name="ES" msprop:Generator_ColumnVarNameInTable="columnES" msprop:Generator_ColumnPropNameInRow="ES" msprop:Generator_ColumnPropNameInTable="ESColumn" msprop:Generator_UserColumnName="ES" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="EF" msdata:ReadOnly="true" msdata:Expression="[Time]+[ES]" msprop:Generator_ColumnVarNameInTable="columnEF" msprop:Generator_ColumnPropNameInRow="EF" msprop:Generator_ColumnPropNameInTable="EFColumn" msprop:Generator_UserColumnName="EF" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LS" msdata:ReadOnly="true" msdata:Expression="[LF]-[Time]" msprop:Generator_ColumnVarNameInTable="columnLS" msprop:Generator_ColumnPropNameInRow="LS" msprop:Generator_ColumnPropNameInTable="LSColumn" msprop:Generator_UserColumnName="LS" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LF" msprop:Generator_ColumnVarNameInTable="columnLF" msprop:Generator_ColumnPropNameInRow="LF" msprop:Generator_ColumnPropNameInTable="LFColumn" msprop:Generator_UserColumnName="LF" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="R" msdata:ReadOnly="true" msdata:Expression="[LF]-[Ef]" msprop:Generator_ColumnVarNameInTable="columnR" msprop:Generator_ColumnPropNameInRow="R" msprop:Generator_ColumnPropNameInTable="RColumn" msprop:Generator_UserColumnName="R" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="WorkListKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WorkList" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="WorkList1_WorkListKey1" msdata:ConstraintName="WorkListKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WorkList1" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
