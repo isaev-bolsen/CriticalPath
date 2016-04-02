@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace CriticalPathBranch2
 {
-
-    }
     class CPM
     {
-        
-        private double TotalTime;
-       public double GetTotalTime() { return TotalTime; }
         private DataTable InputData;
+        private double TotalTime;
+        public double GetTotalTime() { return TotalTime; }
         public CPM(DataTable Data)
         {
             InputData = Data;
-            
-         }
+        }
 
         //1-й проход. Приложение просматривает данные в DataSet построчно, 
         //сверху вниз, вычисляя ES, и занося его в DataSet.
         //Вычисление EF организовано непосредственно внутри DataSet
         public void ViewDown()
-        {   
+        {
             bool hasFirst; //флаг бутет равен false при отсутствии начальной работы
             hasFirst = false;
             //Количество строк
@@ -42,9 +36,16 @@ namespace CriticalPathBranch2
                 {
                     Previous = (string)InputData.Rows[i]["Previous"];
                 }
-                catch (Exception e) { hasFirst = true; continue; }
-                if (Previous == null) { hasFirst = true; continue; }
-                if (Previous.Trim() == "") { hasFirst = true; continue; }//завершить итерацию, если предшествующих работ нет
+                catch (Exception)
+                {
+                    hasFirst = true;
+                    continue;
+                }
+                if (string.IsNullOrWhiteSpace(Previous))//завершить итерацию, если предшествующих работ нет
+                {
+                    hasFirst = true;
+                    continue;
+                }
                 //Получаем массив идентификаторов 
                 string[] Successors = Previous.Split(',');
 
@@ -58,9 +59,8 @@ namespace CriticalPathBranch2
                         //...и занести в список моменты окончания работы
                         RequriedTime.Add((double)PreviousWork["EF"]);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        //MessageBox.Show();
                         throw new Exception("Ошибка входных данных в строке " + (i + 1).ToString() + ".");
                     }
                 }
@@ -91,25 +91,21 @@ namespace CriticalPathBranch2
                 {
                     PreviousIDs = (string)RowsEFdesc[i]["Previous"];
                 }
-                catch (Exception e) { continue; }
-                if (PreviousIDs == null) continue; //выйти, если их нет: достигнуто начало
-                if (PreviousIDs.Trim() == "") continue;
+                catch (Exception) { continue; }
+                if (string.IsNullOrWhiteSpace(PreviousIDs)) continue; //выйти, если их нет: достигнуто начало
                 DataRow[] PreviousWorks = InputData.Select("ID in (" + PreviousIDs + ")");
                 //для каждой задать LF как LS текущей:
-                foreach (DataRow PreviousWork in PreviousWorks) 
-                    if ((double)PreviousWork["LF"] > (double)RowsEFdesc[i]["LS"]) 
+                foreach (DataRow PreviousWork in PreviousWorks)
+                    if ((double)PreviousWork["LF"] > (double)RowsEFdesc[i]["LS"])
                         PreviousWork["LF"] = (double)RowsEFdesc[i]["LS"];
             }
         }
-       
+
         public void validate()
         {
             foreach (DataRow DR in InputData.Rows)
-            {
-            if ((double)DR["R"]<0)
-                throw new Exception("Получилась явно какая-то ерунда. Попробуйте ввести все данные с самого начала."); 
-            }
-        
+                if ((double)DR["R"] < 0)
+                    throw new Exception("Получилась явно какая-то ерунда. Попробуйте ввести все данные с самого начала.");
         }
 
         public void execute()
@@ -119,4 +115,5 @@ namespace CriticalPathBranch2
             validate();
         }
     }
+}
 
